@@ -8,7 +8,7 @@ export const davinci = async (prompt, key) => {
   const openai = new OpenAIApi(configuration);
 
   const response = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-3.5-turbo-16k',
     messages: [
       {
         role: 'system',
@@ -19,8 +19,8 @@ export const davinci = async (prompt, key) => {
       { role: 'assistant', content: 'Hi! How can I help you?' },
       { role: 'user', content: `${prompt}?` },
     ],
-    temperature: 0.3,
-    max_tokens: 1000,
+    temperature: 0.6,
+    max_tokens: 2048,
     top_p: 0.3,
     frequency_penalty: 0.5,
     presence_penalty: 0.2,
